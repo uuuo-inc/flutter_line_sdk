@@ -101,11 +101,6 @@ extension LineChannelMethod {
 
   func setup(arguments: [String: Any]?, result: @escaping FlutterResult) {
     
-    guard !LoginManager.shared.isSetupFinished else {
-        result(nil)
-        return
-    }
-
     guard let args = arguments else {
       result(FlutterError.nilArgument)
       return
