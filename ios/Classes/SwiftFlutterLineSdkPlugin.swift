@@ -101,10 +101,11 @@ extension LineChannelMethod {
 
   func setup(arguments: [String: Any]?, result: @escaping FlutterResult) {
     
-    guard !LoginManager.shared.isSetupFinished else {
-        result(nil)
-        return
-    }
+   // 異なるチャンネルによる再初期化を有効にするため
+    // guard !LoginManager.shared.isSetupFinished else {
+    //     result(nil)
+    //     return
+    // }
 
     guard let args = arguments else {
       result(FlutterError.nilArgument)

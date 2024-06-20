@@ -40,7 +40,7 @@ class LineSdkWrapper {
     fun setupSdk(activity: Activity, channelId: String) {
         runIfDebugBuild {  Log.d(TAG, "setupSdk") }
 
-        if (!this::channelId.isInitialized) {
+        if (!this::channelId.isInitialized || this.channelId != channelId) { // 異なるチャンネルによる再初期化を有効にするため
             this.channelId = channelId
         }
 
