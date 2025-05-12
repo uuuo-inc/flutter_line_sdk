@@ -1,6 +1,40 @@
+## 2.5.2
+
+### Fixed
+
+* Update default build settings for Android. Now the build should run in a more stable way. [#126](https://github.com/line/flutter_line_sdk/pull/126)
+
+## 2.5.1
+
+### Fixed
+
+* A stable `source` field in Podspec file. It avoids the checksum mismatch issue when building the iOS part on difference machines. [#122](https://github.com/line/flutter_line_sdk/pull/122)
+
+## 2.5.0
+
+### Removed
+
+* The old & deprecated `PluginRegistry` symbols (which belong to Flutter Android Plugin v1) are removed from the plugin system. This may cause compilation issues if you're using the old v1 plugin system in later Flutter versions. [#119](https://github.com/line/flutter_line_sdk/pull/119)
+
+## 2.4.0
+
+### Added
+
+* Swift Package Manager integration. Now you can add this package [as a Swift Package](https://docs.flutter.dev/packages-and-plugins/swift-package-manager/for-app-developers) on iOS. [#117](https://github.com/line/flutter_line_sdk/pull/117)
+
+### Fixed
+
+* Integrate Flutter lints. Update and follow linter rules to improve code quality. [#115](https://github.com/line/flutter_line_sdk/pull/115)
+
+## 2.3.8
+
+### Fixed
+
+* A build issue of mismatching between the required language version for newer Flutter versions and the plugin. Now the plugin is compatible with the latest Flutter versions. [#103](https://github.com/line/flutter_line_sdk/pull/103)
+
 ## 2.3.7
 
-### Fixes
+### Fixed
 
 * Exclude "lifecycle-extensions" of AndroidX from the plugin. This solves some conflicts when building with other plugins. [#94](https://github.com/line/flutter_line_sdk/pull/94)
 

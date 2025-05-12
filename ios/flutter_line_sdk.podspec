@@ -1,16 +1,16 @@
 Pod::Spec.new do |s|
   s.name             = 'flutter_line_sdk'
-  s.version          = '2.3.7'
+  s.version          = '2.5.2'
   s.summary          = 'A Flutter plugin for using the LINE SDKs with Dart in Flutter apps.'
   s.description      = <<-DESC
-A Flutter plugin using the LINE SDKs with Dart in Flutter apps.
+A Flutter plugin using the LINE SDKs with Dart in Flutter apps. It provides the channel to use the native LINE SDK for
+Swift.
                        DESC
   s.homepage         = 'https://developers.line.biz'
-  s.license          = { :file => '../LICENSE' }
+  s.license          = { :type => 'Apache', :file => '../LICENSE' }
   s.author           = { 'LINE' => 'dl_linesdk_cocoapods@linecorp.com' }
-  s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
-  s.public_header_files = 'Classes/**/*.h'
+  s.source           = { :http => 'https://github.com/line/flutter_line_sdk' }
+  s.source_files     = 'flutter_line_sdk/Sources/flutter_line_sdk/**/*.swift'
   s.dependency 'Flutter'
   s.dependency 'LineSDKSwift', '~> 5.3'
 

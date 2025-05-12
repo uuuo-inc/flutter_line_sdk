@@ -1,5 +1,4 @@
 group 'com.linecorp.flutter_line_sdk'
-version '1.0-SNAPSHOT'
 
 buildscript {
     ext.kotlin_version = '1.7.21'
@@ -12,7 +11,6 @@ buildscript {
         classpath 'com.android.tools.build:gradle:8.3.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
-
 }
 
 rootProject.allprojects {
@@ -26,9 +24,10 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'com.linecorp.flutter_line_sdk'
-
-    compileSdk 34
+    if (project.android.hasProperty('namespace')) {
+        namespace 'com.linecorp.flutter_line_sdk'
+    }
+    compileSdk 33
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -38,28 +37,29 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-proguard-rules.pro'
     }
+    buildFeatures {
+        buildConfig true
+    }
     lintOptions {
         disable 'InvalidPackage'
     }
-    buildFeatures {
-        buildConfig = true
-    }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+        jvmTarget = '1.8'
     }
 }
 
 dependencies {
-    implementation('com.linecorp.linesdk:linesdk:5.9.1') {
+    implementation('com.linecorp.linesdk:linesdk:5.11.0') {
         exclude group: 'androidx.lifecycle', module: 'lifecycle-viewmodel-ktx'
         exclude group: 'androidx.lifecycle', module: 'lifecycle-extensions'
     }
     implementation 'com.google.code.gson:gson:2.8.5'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.1"
 }
